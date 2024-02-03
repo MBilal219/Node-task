@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "882371bd-6783-45a2-a5cd-8c9ee87db184",
+		"name": "New Collection",
+		"description": "strapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24836178"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Muhammad Bilal Yousaf\",\r\n    \"email\":\"bilalmughal1309@gmail.com\", \r\n    \"password\":\"random123\"\r\n}"
+				},
+				"url": "http://localhost:4000/users/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"bilalmughal1309@gmail.com\",\r\n    \"password\":\"random123\"\r\n}"
+				},
+				"url": "http://localhost:4000/users/login"
+			},
+			"response": []
+		},
+		{
+			"name": "user-Info-with-middleware",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YmUxODQwYTU3ZWYzZWFlMGY2ZmU3YyIsImlhdCI6MTcwNjk1NzE1NSwiZXhwIjoxNzA3MDQzNTU1fQ.ri9Ln2rrIVOsjMJYuOG6ukpn2Mp8flQWM9EACyJRLkc",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:4000/users/info"
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/users/logout"
+			},
+			"response": []
+		}
+	]
+}
