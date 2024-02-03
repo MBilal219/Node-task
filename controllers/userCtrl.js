@@ -5,14 +5,14 @@ const jwt = require("jsonwebtoken");
 const userCtrl = {
   register: async (req, res) => {
     try {
-      const { name, email, password, metaaddress } = req.body;
-      const user = await Users.findOne({ email, metaaddress });
-      if (user)
-        return res.status(400).json({ msg: "Credentials already exists" });
+      const { name, email, password } = req.body;
+      console.log(name, email, password);
+      const user = await Users.findOne({ email });
+      if (user) return res.status(400).json({ msg: "User already exists" });
       if (password.length < 8)
         return res
           .status(400)
-          .json({ msg: "Password should be atleast 8 characters" });
+          .json({ msg: "Password should be atleast 8 characters long" });
 
       //password encryption
       const passwordHash = await bcrypt.hash(password, 10);
@@ -20,7 +20,6 @@ const userCtrl = {
         name,
         email,
         password: passwordHash,
-        metaaddress,
       });
       await newUser.save();
 
